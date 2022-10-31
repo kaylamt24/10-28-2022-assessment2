@@ -35,6 +35,19 @@ let EmployeeOne = new Employee('Kayla', 'day shift')
 console.log(EmployeeOne)
 EmployeeOne.getShifts()
 
+//Again, did a few times so the names got messed up from. Should have been schedule. Did it right though
+
+
+// class Employee {
+//     constructor (name, shifts){
+//         this.name = name
+//         this.shifts = shifts
+
+//     }
+//     getSchedule(){
+//         console.log(`${this.name} works on ${this.shifts}`)
+//     }
+// }
 
 
 /*
@@ -50,21 +63,24 @@ EmployeeOne.getShifts()
 let empOne = new Employee('Jess', 'weekday mornings and weekday afternoons')
 //OR ????
 
-let empOne1 = new Employee('Jess', ['weekday morningings', ' weekday afternoons'])
+let empOne1 = new Employee('Jess', ['weekday mornings', ' weekday afternoons'])
 console.log(empOne)
 console.log(empOne1)
 empOne.getShifts()
 empOne1.getShifts()
 
-
+//I mean, I did it right haha. Just did it a couple different ways to make sure my bases were covered? A win is a win. A win is a win.
 
 //CODE HERE
 
-// ABOVE
+// ABOVE ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 /*
     Call the `getSchedule` method on the
     `empOne` object.
 */
+
+
+
 
 //CODE HERE
 
@@ -84,8 +100,17 @@ empOne1.getShifts()
 //CODE HERE
 //the helen one??
 
-const empTwo = {...Employee.name, 'Nick'}
+// const empTwo = {...Employee.name, 'Nick'}
+// console.log(empTwo)
+
+//I was on the right track with realizing it was like the Helen one we went over but the execution was completley incorrect. 
+
+const empTwo = {...empOne, name: 'Nick'}
 console.log(empTwo)
+
+// const empTwo = {...empOne}
+// empTwo.name = 'Nick'
+// console.log(empTwo)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -113,6 +138,20 @@ console.log(empTwo)
 
 //CODE HERE
 
+class Manager extends Employee {
+    constructor(name, shifts, employees){
+        super(name, shifts)
+        this.employees = employees
+    }
+
+    getEmployees(){
+        console.log(`${this.name} manages ${this.employees}`)
+    }
+
+    addEmployee(emp){
+        this.employeess.push(emp)
+    }
+}
 
 
 /*
@@ -126,7 +165,7 @@ console.log(empTwo)
     employees: Cece and Schmidt
 */
 
-//CODE HERE
+const manager = new Manager('Winston', ['weekday mornings', 'weekday afternoons'], ['Cece', ' Schmidt'])
 
 
 /*
@@ -134,7 +173,8 @@ console.log(empTwo)
     `manager` object.  
 */
 
-//CODE HERE
+
+manager.getEmployees()
 
 /*
     Call the `addEmployee` method on the 
@@ -142,7 +182,7 @@ console.log(empTwo)
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+manager.addEmployee('Coach')
 
 /*
     Call the `getEmployees` method on the
@@ -150,4 +190,4 @@ console.log(empTwo)
     that an employee was added.
 */
 
-//CODE HERE
+manager.getEmployees()

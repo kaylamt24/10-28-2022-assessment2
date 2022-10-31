@@ -8,6 +8,9 @@
 */
 
 
+//As I went through this, names started to change because I was doing them and then redoing them. As I go through, when one is correct, I am just going to rewrite it with the correct name.
+
+
 //////////////////PROBLEM 1////////////////////
 /* 
     Write an *arrow* function called `greetUser`
@@ -31,6 +34,16 @@ const greetUser = (userName) => {
 }
 
 greetUser('Andrew')
+
+//This did get us to our destination however it specifically asked for a return statement so the correct way to set it up would have been...
+
+
+const greetUser1 = (username) => {
+    return `Welcome back, ${username}!`
+}
+    console.log(greetUser1('Andrew'))
+
+
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -78,7 +91,24 @@ const canWeDeliver = (zipcode) => {
 }
 
 canWeDeliver(62301)
-canWeDeliver(85205)
+canWeDeliver(85206)
+
+
+//Same as above where the execution was correct however I did not return the value rather I console.logged it. 
+
+console.log('===================')
+
+const canWeDeliver1 = (zipcodes) => {
+    if (deliveryAreaZipCodes1.includes(zipcodes)){
+        return "You're in my delivery zone!"
+    } else {
+        return "Sorry, we can't deliver to that address"
+    }
+}
+console.log(canWeDeliver1(62301))
+console.log(canWeDeliver1(85206))
+
+
 
 console.log('===================')
 
@@ -178,16 +208,26 @@ const deals = [
 
 //CODE HERE
 
-// const discount = deals.findIndex( (deal) => deal.title === '15% Off!')
+// YOU CAN SEE HERE THAT I WAS WORKING THROUGH IT. I HAD THE RIGHT IDEA BUT I COULDN'T GET IT TO WORK AND NOW I SEE WHY. 
+
+// const discount = deals.findIndex( (deal) => deal.title === '15% Off!') <<FOUND THE INDEX
 // console.log(discount) 
 
-//Idk
+//Idk << HAHA :) 
 
 // deals[0].title === deals[0].title.replace('15', '10')
 
-// console.log(deals)
+//console.log(deals) 
 
-let newTitle
+deals[0].title = deals[0].title.replace('15', '10')
+console.log(deals[0].title)
+
+//Honestly I set it up correctly but I messed up on 2 things. 1.) I did deep equals (===) instead of just one (=) and then I didn't console.log it correctly. If I would have gotten the ===/= correct, I know I would have been able to console log it correctly. 
+
+const change = deals[0].title.replace('15', '10')
+console.log(change)
+
+//assigning it to a variable first  
 
 
 /*
@@ -202,3 +242,8 @@ let newTitle
     whitespace in this string, since it seems
     to be displaying wrong on the live site.
 */
+
+//The title is at index 0, and the desc is at index 1. We are wanting to REPLACE March with April and then trim out all the white space inside of the desc because you can see all the space between '     This'. 
+
+deals[1].desc = deals[1].desc.trim().replace('March', 'April')
+console.log(deals[1])

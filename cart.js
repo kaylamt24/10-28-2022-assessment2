@@ -35,13 +35,22 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((acc, curr) => {
+    return acc + curr.price
+}, 0)
 
-const summedPrice = (price) => {
-    return price.reduce(accu, curr) => accu + curr)
-}
+console.log(summedPrice)
 
-console.log(summedPrice(cart))
+// const summedPrice = (price) => {
+//     return price.reduce(accu, curr) => accu + curr)
+// }
+
+// console.log(summedPrice(cart))
+
+
+//I always try to type it out myself from beginning to end but I am going to start using the given part. 
+
+//--------------a callback is writing a function inside of a function and passing it to the first function and as a parameter. 
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -60,7 +69,11 @@ console.log(summedPrice(cart))
 
 //CODE HERE
 
-const calcFinalPrice
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    return (cartTotal * (1 + tax)) - couponValue
+}
+
+console.log(calcFinalPrice(20, 4, .25))
 
 
 
@@ -85,8 +98,13 @@ const calcFinalPrice
 */
 
 /*
-    TEXT ANSWER HERE
-
+    Name - string
+    phoneNumber - string
+    address - string
+    contactlessDelivery - Boolean
+    textAlerts - Boolean
+    internalNotes - array
+    The information a rest would need is just the basics. Name, address, phone number and because of covid, whether or not they want contactless delivery. Ontop of that you could add a boolean on whether or not they opted in for text alerts on their delivery (I do this for Pizza Hut because where is my pizza? It's been 7 minutes)
 */
 
 /*
@@ -95,3 +113,13 @@ const calcFinalPrice
 */
 
 //CODE HERE
+
+const customer = {
+    firstName: 'Kayla',
+    lastName: 'Mountain',
+    address: '123 Sesame St. San Antonio, TX 78217',
+    phoneNumber: '217-617-9207',
+    contactlessDelivery: false,
+    textAlets: true,
+    internalNotes: ['has dog', 'no outside lights', 'tips well' ]
+}

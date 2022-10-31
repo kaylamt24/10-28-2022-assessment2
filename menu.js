@@ -42,7 +42,7 @@ let pizza = {
 }
 console.log(pizza)
 
-
+// nested data 
 //////////////////PROBLEM 2////////////////////
 /* 
     Let's print a few values from our pizza object.
@@ -68,6 +68,11 @@ console.log(pizza.tags)
 let key = 'tags'
 console.log(pizza[key])
 
+//I did not need to assign it to a new variable when I could have accessed it through dot notation. 
+
+console.log(pizza.tags[1])
+
+// get again, didn't read that it was the second......... I have test anxiety so I try to rush through it.
 /*
     Third, destructure the price off of the
     pizza object.
@@ -81,6 +86,8 @@ let newPrice = pizza.price
 
 console.log(newPrice)
 
+const {price} = pizza
+
 
 /*
     Fourth, and last, destructure the category
@@ -91,6 +98,9 @@ console.log(newPrice)
 
 let newCategory = pizza.category
 console.log(newCategory)
+
+const {category} = pizza
+console.log(category)
 
 //CODE HERE
 
@@ -131,7 +141,7 @@ const foodArr = [ {
     name: 'sausage',
      price: 16, //
     category: 'California style',
-     popularity: 32, //
+     popularity: 50, //
     rating :60, //
     tags: ["California", 'greasy', 'hawaiian', 'pineapple', 'cheesy'] //
 },
@@ -139,7 +149,7 @@ const foodArr = [ {
     name: 'cheese',
      price: 18, //
     category: 'Miami style deep dish',
-     popularity: 32, //
+     popularity: 20, //
     rating :70, //
     tags: ["Miami", 'extra sausage', 'foldable', 'high protein'] //
 },
@@ -147,7 +157,7 @@ const foodArr = [ {
     name: 'pepperoni',
      price: 20, //
     category: 'Chicago style deep dish',
-     popularity: 32, //
+     popularity: 65, //
     rating :80, //
     tags: ["TX", 'greasy', 'foldable', 'big', 'cheesy'] //
 }]
@@ -182,7 +192,10 @@ console.log(foodWithCheesy)
 // }
 // console.log(filteredFoods)
 
-
+const filteredFood = foodArr.filter(function(elem){
+    return elem.tags.includes('foldable')
+})
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -223,24 +236,38 @@ console.log(foodWithCheesy)
     Return the filtered array from the entire function
 */
 
+
+console.log('======================================================================')
 //CODE HERE
 // filter the 3 prop
 
+// const filteredByProperty = (property, number, type) => {
+//     const filterArray = foodArr.filter(pizza) => {
+//         if 
+//     }
+// }
+// Started out strong 
+
 const filteredByProperty = (property, number, type) => {
-    const filterArray = foodArr.filter(pizza) => {
-        if 
-    }
+    const filteredArr = foodArr.filter(pizza => {
+        if(type === 'above'){
+            return pizza[property] > number
+        } else if (type === 'below'){
+            return pizza[property] > number
+        } else {
+            return "You didn't do it right"
+        }
+    })
+    return filteredArr
 }
 
+console.log(filteredByProperty("popularity", 50, 'above'))
+
+
+//the popularity has to be a string because if not, it will look for a variable. The only want to pass the name through without saving it has a variable is by doing it as a string. 
 
 
 
-
-
-// const foodWithCheesy = foodArr.filter(function(elem){
-//     return elem.tags.includes('cheesy')
-// })
-// console.log(foodWithCheesy)
 /*
     Invoke the `filterByProperty` function passing
     in a value for each paramter.
